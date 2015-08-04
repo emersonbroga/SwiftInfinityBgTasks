@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        DB.addMessage("App Enter Foregorund.")
+        DB.addMessage("App Enter Foreground.")
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
