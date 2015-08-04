@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>68EF975D-5F44-43AB-809E-10B755B5AFBB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>InfinityBgTask</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9DC4A1E8B2133690A67C5BCFF41BC793884A5B91</key>
+		<string>https://github.com/emersonbroga/SwiftInfinityBgTasks.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>InfinityBgTask.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9DC4A1E8B2133690A67C5BCFF41BC793884A5B91</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/emersonbroga/SwiftInfinityBgTasks.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9DC4A1E8B2133690A67C5BCFF41BC793884A5B91</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9DC4A1E8B2133690A67C5BCFF41BC793884A5B91</string>
+			<key>IDESourceControlWCCName</key>
+			<string>InfinityBgTask</string>
+		</dict>
+	</array>
+</dict>
+</plist>

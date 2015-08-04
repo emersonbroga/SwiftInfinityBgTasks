@@ -10,6 +10,9 @@ import UIKit
 import CoreLocation
 
 
+let kStopUpdatingAfterSeconds : NSTimeInterval = 10
+let kResumeUpdatingAfterSeconds : NSTimeInterval = 60
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
     
@@ -20,11 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var bgTask: BackgroundTaskManager = BackgroundTaskManager.sharedBackgroundTaskManager()!
     
     var timer : NSTimer? = nil
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        DB.addMessage("App Started.")
+        DB.addMessage("****** App Started ******")
         
         manager = CLLocationManager()
         manager?.delegate = self;
@@ -32,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         manager?.requestAlwaysAuthorization()
         manager?.startUpdatingLocation()
+        stopLocationUpdatesInSeconds(kStopUpdatingAfterSeconds)
         
         return true
     }
@@ -53,8 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
          // Call running in bg every 10 seconds
          timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "runningInBg", userInfo: nil, repeats: true)
         }
-        
-        
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -94,6 +96,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
             DB.addMessage("didFailWithError \(error.localizedDescription)")
     }
+    
+    func stopLocationUpdatesInSeconds(seconds: NSTimeInterval) {
+        NSTimer.scheduledTimerWithTimeInterval(seconds, target: self, selector: "stopLocationUpdates", userInfo: nil, repeats: false)
+    }
+    
+    func resumeLocationUpdatesInSeconds(seconds: NSTimeInterval) {
+        NSTimer.scheduledTimerWithTimeInterval(seconds, target: self, selector: "resumeLocationUpdates", userInfo: nil, repeats: false)
+    }
+    
+    func stopLocationUpdates() {
+        manager?.stopUpdatingLocation()
+        resumeLocationUpdatesInSeconds(kResumeUpdatingAfterSeconds)
+        DB.addMessage("Location Updates Stopped.")
+    }
+    
+    func resumeLocationUpdates(){
+        manager?.startUpdatingLocation()
+        stopLocationUpdatesInSeconds(kStopUpdatingAfterSeconds)
+        DB.addMessage("Location Updates Started.")
+    }
+    
     
 
 }
