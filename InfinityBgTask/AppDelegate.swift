@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func runningInBg()
     {
         bgTask.beginNewBackgroundTask()
-        DB.addMessage("Running in bg.")
+        DB.addMessage("App running.")
         
     }
     
